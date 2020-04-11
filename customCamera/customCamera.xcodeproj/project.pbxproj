@@ -14,6 +14,7 @@
 		965810DE24425E6000E2B439 /* customCamera.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 965810DC24425E6000E2B439 /* customCamera.xcdatamodeld */; };
 		965810E024425E6300E2B439 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 965810DF24425E6300E2B439 /* Assets.xcassets */; };
 		965810E324425E6300E2B439 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 965810E124425E6300E2B439 /* LaunchScreen.storyboard */; };
+		965810EB24428B1300E2B439 /* CapturedImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965810EA24428B1300E2B439 /* CapturedImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		965810DF24425E6300E2B439 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		965810E224425E6300E2B439 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		965810E424425E6300E2B439 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		965810EA24428B1300E2B439 /* CapturedImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapturedImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				965810D324425E6000E2B439 /* AppDelegate.swift */,
 				965810D524425E6000E2B439 /* SceneDelegate.swift */,
 				965810D724425E6000E2B439 /* ViewController.swift */,
+				965810EA24428B1300E2B439 /* CapturedImageViewController.swift */,
 				965810D924425E6000E2B439 /* Main.storyboard */,
 				965810DF24425E6300E2B439 /* Assets.xcassets */,
 				965810E124425E6300E2B439 /* LaunchScreen.storyboard */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				965810D824425E6000E2B439 /* ViewController.swift in Sources */,
+				965810EB24428B1300E2B439 /* CapturedImageViewController.swift in Sources */,
 				965810DE24425E6000E2B439 /* customCamera.xcdatamodeld in Sources */,
 				965810D424425E6000E2B439 /* AppDelegate.swift in Sources */,
 				965810D624425E6000E2B439 /* SceneDelegate.swift in Sources */,
