@@ -60,17 +60,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rc5-lG-Kit">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1dJ-MF-vYL">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                            </view>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="rc5-lG-Kit" firstAttribute="trailing" secondItem="T4w-Us-dXE" secondAttribute="trailing" id="67o-wp-8Dg"/>
-                            <constraint firstItem="rc5-lG-Kit" firstAttribute="bottom" secondItem="T4w-Us-dXE" secondAttribute="bottom" id="IHt-Eu-gbq"/>
-                            <constraint firstItem="rc5-lG-Kit" firstAttribute="leading" secondItem="T4w-Us-dXE" secondAttribute="leading" id="ebt-o2-I5R"/>
-                            <constraint firstItem="rc5-lG-Kit" firstAttribute="top" secondItem="T4w-Us-dXE" secondAttribute="top" id="vnj-qU-eyj"/>
+                            <constraint firstItem="1dJ-MF-vYL" firstAttribute="leading" secondItem="T4w-Us-dXE" secondAttribute="leading" id="LMk-8c-D0n"/>
+                            <constraint firstItem="1dJ-MF-vYL" firstAttribute="trailing" secondItem="T4w-Us-dXE" secondAttribute="trailing" id="Xqv-GQ-tH4"/>
+                            <constraint firstItem="1dJ-MF-vYL" firstAttribute="top" secondItem="T4w-Us-dXE" secondAttribute="top" id="ep2-f1-IZc"/>
+                            <constraint firstItem="1dJ-MF-vYL" firstAttribute="bottom" secondItem="T4w-Us-dXE" secondAttribute="bottom" id="pE9-DZ-2Yk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="T4w-Us-dXE"/>
                     </view>

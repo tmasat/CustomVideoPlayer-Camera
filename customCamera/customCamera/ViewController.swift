@@ -13,39 +13,45 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var imageCaptureButton: UIButton!
-    var captureSession: AVCaptureSession?
-    var videoPreviewLayer: AVCaptureVideoPreviewLayer?
-    var backCamera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back)
+    let captureSession = AVCaptureSession()
+    var previewLayer: CALayer!
+    var captureDevice: AVCaptureDevice!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard #available(iOS 10.2, *) else {exit(0)}
-        prepareInputSession()
+        prepareCamera()
+    }
+    
+    func prepareCamera() {
+        captureSession.sessionPreset = AVCaptureSession.Preset.photo
+        let availableDevices = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .back).devices
+        captureDevice = availableDevices.first
+        beginSession()
+    }
+    
+    func beginSession() {
+        do {
+            let captureDeviceInput = try AVCaptureDeviceInput(device: captureDevice)
+            captureSession.addInput(captureDeviceInput)
+        } catch {
+            print(error.localizedDescription)
+        }
+        let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        self.previewLayer = previewLayer
+        self.view.layer.addSublayer(self.previewLayer)
+        self.previewLayer.frame = self.view.layer.frame
+        captureSession.startRunning()
+        let dataOutput = AVCaptureVideoDataOutput()
+        dataOutput.videoSettings = [((kCVPixelBufferPixelFormatTypeKey as NSString) as String):NSNumber(value: kCVPixelFormatType_32BGRA)]
+        dataOutput.alwaysDiscardsLateVideoFrames = true
+        if captureSession.canAddOutput(dataOutput) {
+            captureSession.addOutput(dataOutput)
+        }
+        captureSession.commitConfiguration()
     }
     override func viewDidAppear(_ animated: Bool) {
-        imageCaptureButton.isHidden = false
-        prepareInputSession()
     }
     
     @IBAction func imageCaptureButtonPressed(_ sender: Any) {
-        imageCaptureButton.isHidden = true
-        captureSession?.stopRunning()
-        let vc = storyboard?.instantiateViewController(withIdentifier: "CapturedImageViewController") as! CapturedImageViewController
-        navigationController?.pushViewController(vc, animated: true)
-        
-    }
-    func prepareInputSession() {
-        let captureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back)
-        do {
-            let input = try AVCaptureDeviceInput(device: captureDevice!)
-            captureSession = AVCaptureSession()
-            captureSession?.addInput(input)
-            videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession!)
-            videoPreviewLayer?.frame = view.layer.bounds
-            cameraView.layer.addSublayer(videoPreviewLayer!)
-            captureSession?.startRunning()
-        } catch {
-            print("Version Error")
-        }
     }
 }

@@ -7,18 +7,11 @@
 //
 
 import UIKit
+import AVFoundation
 
 class CapturedImageViewController: UIViewController {
     
-  //  var capturedVideoPreviewLayer: AVCaptureVideoPreviewLayer?
-    var testCapturedImage: UIImage!
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       
     }
-    
-
-   
 }
