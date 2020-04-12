@@ -19,33 +19,32 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ie-Mx-32j">
-                                <rect key="frame" x="167.5" y="527" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="9g4-Jt-vEk"/>
-                                    <constraint firstAttribute="height" constant="40" id="Nho-aj-b8k"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="circle"/>
-                                <connections>
-                                    <action selector="imageCaptureButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6XV-hg-QKF"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="tSg-Mx-4dG" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="2cK-e0-ebk"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5Ie-Mx-32j" secondAttribute="bottom" constant="100" id="AEy-aF-h5L"/>
                             <constraint firstItem="tSg-Mx-4dG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="LFe-A3-W8i"/>
                             <constraint firstItem="tSg-Mx-4dG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UMZ-8W-xPw"/>
-                            <constraint firstItem="5Ie-Mx-32j" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="i7v-HF-C40"/>
                             <constraint firstItem="tSg-Mx-4dG" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="wlH-Ey-5u9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="3zb-uq-rNb"/>
+                    <navigationItem key="navigationItem" id="3zb-uq-rNb">
+                        <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="eN8-OI-AVK">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ds8-O4-2xY">
+                                <rect key="frame" x="276" y="7" width="24" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="tintColor" red="0.43305248019999998" green="0.38675129409999998" blue="0.64708489179999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" image="camera" catalog="system"/>
+                                <connections>
+                                    <action selector="capturePhotoButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="01R-X1-wm6"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="cameraView" destination="tSg-Mx-4dG" id="rAA-r6-DPT"/>
-                        <outlet property="imageCaptureButton" destination="5Ie-Mx-32j" id="kHj-3g-M9s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -73,6 +72,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="T4w-Us-dXE"/>
                     </view>
+                    <connections>
+                        <outlet property="capturedPhoto" destination="1dJ-MF-vYL" id="QE5-Ay-uMf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zcg-0F-rhs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -98,6 +100,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="circle" width="6000" height="6000"/>
+        <image name="camera" catalog="system" width="64" height="48"/>
     </resources>
 </document>

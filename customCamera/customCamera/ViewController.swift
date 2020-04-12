@@ -12,10 +12,10 @@ import AVFoundation
 class ViewController: UIViewController {
     
     @IBOutlet weak var cameraView: UIView!
-    @IBOutlet weak var imageCaptureButton: UIButton!
     let captureSession = AVCaptureSession()
     var previewLayer: CALayer!
     var captureDevice: AVCaptureDevice!
+    var takePhoto = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,10 +48,40 @@ class ViewController: UIViewController {
             captureSession.addOutput(dataOutput)
         }
         captureSession.commitConfiguration()
-    }
-    override func viewDidAppear(_ animated: Bool) {
+        
+        let queue = DispatchQueue(label: "com.customCamera.captureQueue")
+        dataOutput.setSampleBufferDelegate(self, queue: queue)
     }
     
-    @IBAction func imageCaptureButtonPressed(_ sender: Any) {
+    @IBAction func capturePhotoButtonPressed(_ sender: Any) {
+        takePhoto = true
+    }
+    
+    func getImageFromSampleBuffer(buffer: CMSampleBuffer) -> UIImage? {
+        if let pixelBuffer = CMSampleBufferGetImageBuffer(buffer) {
+            let ciImage = CIImage(cvPixelBuffer: pixelBuffer)
+            let context = CIContext()
+            let imageRect = CGRect(x: 0, y: 0, width: CVPixelBufferGetWidth(pixelBuffer), height: CVPixelBufferGetHeight(pixelBuffer))
+            
+            if let image = context.createCGImage(ciImage, from: imageRect) {
+                return UIImage(cgImage: image, scale: UIScreen.main.scale, orientation: .right)
+            }
+        }
+        return nil
+    }
+}
+
+extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
+    func captureOutput(_ output: AVCaptureOutput!, didOutput sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
+        if takePhoto {
+            takePhoto = false
+            if let image = self.getImageFromSampleBuffer(buffer: sampleBuffer) {
+                DispatchQueue.main.async {
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "CapturedImageViewController") as! CapturedImageViewController
+                    vc.takenPhoto = image
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
+        }
     }
 }

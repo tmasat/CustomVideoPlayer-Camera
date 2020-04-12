@@ -10,8 +10,12 @@ import UIKit
 import AVFoundation
 
 class CapturedImageViewController: UIViewController {
+    var takenPhoto: UIImage?
+    
+    @IBOutlet weak var capturedPhoto: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        capturedPhoto.image = takenPhoto
     }
 }
