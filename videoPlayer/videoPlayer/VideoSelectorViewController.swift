@@ -17,21 +17,19 @@ class VideoSelectorViewController: UIViewController {
         super.viewDidLoad()
         self.TableViewList.delegate = self
         self.TableViewList.dataSource = self
+        TableViewList.register(UINib(nibName: "CustomVideoTableViewCell", bundle: nil), forCellReuseIdentifier: "VideoTitleCellIdentifier")
         self.TableViewList.reloadData()
     }
 }
 
 //MARK:- UITableViewDataSource Extension
 extension VideoSelectorViewController: UITableViewDataSource, UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return videoNamesArray.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell") as! TableViewCell
-        cell.videoNamesText.text = videoNamesArray[indexPath.row]
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "VideoTitleCellIdentifier") as! CustomVideoTableViewCell
+        cell.customCellTitle.text = videoNamesArray[indexPath.row]
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

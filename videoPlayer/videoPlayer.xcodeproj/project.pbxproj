@@ -14,8 +14,9 @@
 		96AB2BE723E93FDC0021E227 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96AB2BE523E93FDC0021E227 /* Main.storyboard */; };
 		96AB2BE923E93FDD0021E227 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96AB2BE823E93FDD0021E227 /* Assets.xcassets */; };
 		96AB2BEC23E93FDD0021E227 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96AB2BEA23E93FDD0021E227 /* LaunchScreen.storyboard */; };
-		96AB2BF423E98CB60021E227 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AB2BF323E98CB60021E227 /* TableViewCell.swift */; };
 		96AB2BF623E991DF0021E227 /* VideoSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AB2BF523E991DF0021E227 /* VideoSelectorViewController.swift */; };
+		96E9F6AE244513F300FE484A /* CustomVideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E9F6AC244513F300FE484A /* CustomVideoTableViewCell.swift */; };
+		96E9F6AF244513F300FE484A /* CustomVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96E9F6AD244513F300FE484A /* CustomVideoTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +41,9 @@
 		96AB2BE823E93FDD0021E227 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96AB2BEB23E93FDD0021E227 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		96AB2BED23E93FDD0021E227 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		96AB2BF323E98CB60021E227 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		96AB2BF523E991DF0021E227 /* VideoSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSelectorViewController.swift; sourceTree = "<group>"; };
+		96E9F6AC244513F300FE484A /* CustomVideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomVideoTableViewCell.swift; sourceTree = "<group>"; };
+		96E9F6AD244513F300FE484A /* CustomVideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomVideoTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,17 +94,26 @@
 		96AB2BDE23E93FDC0021E227 /* videoPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				96E9F6AB2445134000FE484A /* View */,
 				96AB2BDF23E93FDC0021E227 /* AppDelegate.swift */,
 				96AB2BE123E93FDC0021E227 /* SceneDelegate.swift */,
 				96AB2BE323E93FDC0021E227 /* ViewController.swift */,
 				96AB2BF523E991DF0021E227 /* VideoSelectorViewController.swift */,
-				96AB2BE523E93FDC0021E227 /* Main.storyboard */,
-				96AB2BF323E98CB60021E227 /* TableViewCell.swift */,
 				96AB2BE823E93FDD0021E227 /* Assets.xcassets */,
 				96AB2BEA23E93FDD0021E227 /* LaunchScreen.storyboard */,
 				96AB2BED23E93FDD0021E227 /* Info.plist */,
 			);
 			path = videoPlayer;
+			sourceTree = "<group>";
+		};
+		96E9F6AB2445134000FE484A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				96AB2BE523E93FDC0021E227 /* Main.storyboard */,
+				96E9F6AC244513F300FE484A /* CustomVideoTableViewCell.swift */,
+				96E9F6AD244513F300FE484A /* CustomVideoTableViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +206,7 @@
 			files = (
 				96AB2BEC23E93FDD0021E227 /* LaunchScreen.storyboard in Resources */,
 				96AB2BE923E93FDD0021E227 /* Assets.xcassets in Resources */,
+				96E9F6AF244513F300FE484A /* CustomVideoTableViewCell.xib in Resources */,
 				96AB2BE723E93FDC0021E227 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -214,8 +226,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96E9F6AE244513F300FE484A /* CustomVideoTableViewCell.swift in Sources */,
 				96AB2BE423E93FDC0021E227 /* ViewController.swift in Sources */,
-				96AB2BF423E98CB60021E227 /* TableViewCell.swift in Sources */,
 				96AB2BE023E93FDC0021E227 /* AppDelegate.swift in Sources */,
 				96AB2BE223E93FDC0021E227 /* SceneDelegate.swift in Sources */,
 				96AB2BF623E991DF0021E227 /* VideoSelectorViewController.swift in Sources */,
