@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TFd-iW-7CZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TFd-iW-7CZ">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,15 +18,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tSg-Mx-4dG">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0m1-aJ-RKw" customClass="CaptureFloatView" customModule="customCamera" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="587" width="375" height="80"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="7U1-y4-ZV3"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="tSg-Mx-4dG" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="2cK-e0-ebk"/>
-                            <constraint firstItem="tSg-Mx-4dG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="LFe-A3-W8i"/>
+                            <constraint firstItem="0m1-aJ-RKw" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Gfk-nn-xFT"/>
+                            <constraint firstItem="tSg-Mx-4dG" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="LFe-A3-W8i"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0m1-aJ-RKw" secondAttribute="bottom" id="Lh3-KQ-gBZ"/>
                             <constraint firstItem="tSg-Mx-4dG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UMZ-8W-xPw"/>
+                            <constraint firstItem="0m1-aJ-RKw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="o1u-ar-V2v"/>
                             <constraint firstItem="tSg-Mx-4dG" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="wlH-Ey-5u9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -32,19 +44,17 @@
                     <navigationItem key="navigationItem" id="3zb-uq-rNb">
                         <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="eN8-OI-AVK">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ds8-O4-2xY">
-                                <rect key="frame" x="276" y="7" width="24" height="22"/>
+                                <rect key="frame" x="335" y="11" width="24" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="tintColor" red="0.43305248019999998" green="0.38675129409999998" blue="0.64708489179999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" image="camera" catalog="system"/>
-                                <connections>
-                                    <action selector="capturePhotoButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="01R-X1-wm6"/>
-                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="cameraView" destination="tSg-Mx-4dG" id="rAA-r6-DPT"/>
+                        <outlet property="floatView" destination="0m1-aJ-RKw" id="JsE-N8-Ihz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -60,20 +70,68 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1dJ-MF-vYL">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="627"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="itg-EO-Hsz">
+                                <rect key="frame" x="0.0" y="627" width="375" height="40"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="CR3-63-F78">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bzG-aL-bNx">
+                                                <rect key="frame" x="0.0" y="0.0" width="125" height="40"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                                                <state key="normal" title="Back">
+                                                    <color key="titleColor" name="primaryTextColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="buttonTapped:" destination="eKs-pC-xrA" eventType="touchUpInside" id="t9O-2e-H4X"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0t2-EE-5Pj">
+                                                <rect key="frame" x="125" y="0.0" width="125" height="40"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                                                <state key="normal" title="Save to Photos">
+                                                    <color key="titleColor" name="primaryTextColor"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nlP-cd-5jq">
+                                                <rect key="frame" x="250" y="0.0" width="125" height="40"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                                                <state key="normal" title="Share">
+                                                    <color key="titleColor" name="primaryTextColor"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="CR3-63-F78" firstAttribute="leading" secondItem="itg-EO-Hsz" secondAttribute="leading" id="3it-5V-4eP"/>
+                                    <constraint firstItem="CR3-63-F78" firstAttribute="top" secondItem="itg-EO-Hsz" secondAttribute="top" id="TMN-tB-Ukz"/>
+                                    <constraint firstAttribute="trailing" secondItem="CR3-63-F78" secondAttribute="trailing" id="chL-hN-vBF"/>
+                                    <constraint firstAttribute="bottom" secondItem="CR3-63-F78" secondAttribute="bottom" id="djd-UO-U7j"/>
+                                    <constraint firstAttribute="height" constant="40" id="rPj-WH-NE0"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="1dJ-MF-vYL" firstAttribute="leading" secondItem="T4w-Us-dXE" secondAttribute="leading" id="LMk-8c-D0n"/>
                             <constraint firstItem="1dJ-MF-vYL" firstAttribute="trailing" secondItem="T4w-Us-dXE" secondAttribute="trailing" id="Xqv-GQ-tH4"/>
-                            <constraint firstItem="1dJ-MF-vYL" firstAttribute="top" secondItem="T4w-Us-dXE" secondAttribute="top" id="ep2-f1-IZc"/>
-                            <constraint firstItem="1dJ-MF-vYL" firstAttribute="bottom" secondItem="T4w-Us-dXE" secondAttribute="bottom" id="pE9-DZ-2Yk"/>
+                            <constraint firstItem="itg-EO-Hsz" firstAttribute="top" secondItem="1dJ-MF-vYL" secondAttribute="bottom" id="dkj-4I-6DD"/>
+                            <constraint firstItem="1dJ-MF-vYL" firstAttribute="top" secondItem="HNw-rT-gl4" secondAttribute="top" id="ep2-f1-IZc"/>
+                            <constraint firstItem="itg-EO-Hsz" firstAttribute="leading" secondItem="T4w-Us-dXE" secondAttribute="leading" id="luy-Iz-rFW"/>
+                            <constraint firstItem="T4w-Us-dXE" firstAttribute="bottom" secondItem="itg-EO-Hsz" secondAttribute="bottom" id="vZV-P8-V0u"/>
+                            <constraint firstItem="T4w-Us-dXE" firstAttribute="trailing" secondItem="itg-EO-Hsz" secondAttribute="trailing" id="z59-7q-dNf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="T4w-Us-dXE"/>
                     </view>
                     <connections>
-                        <outlet property="capturedPhoto" destination="1dJ-MF-vYL" id="QE5-Ay-uMf"/>
+                        <outlet property="backButton" destination="bzG-aL-bNx" id="bZ7-Nx-gWd"/>
+                        <outlet property="capturedPhotoImageView" destination="1dJ-MF-vYL" id="QE5-Ay-uMf"/>
+                        <outlet property="saveToGalleryButton" destination="0t2-EE-5Pj" id="Caa-xd-nhe"/>
+                        <outlet property="shareButton" destination="nlP-cd-5jq" id="7pV-jK-dm4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zcg-0F-rhs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -83,10 +141,9 @@
         <!--Navigation Controller-->
         <scene sceneID="L8F-Od-4Dn">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TFd-iW-7CZ" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="TFd-iW-7CZ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dDk-tJ-G36">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -101,5 +158,8 @@
     </scenes>
     <resources>
         <image name="camera" catalog="system" width="64" height="48"/>
+        <namedColor name="primaryTextColor">
+            <color red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

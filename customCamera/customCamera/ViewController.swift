@@ -11,22 +11,37 @@ import AVFoundation
 
 class ViewController: UIViewController {
     
+    //MARK:- Outlets
     @IBOutlet weak var cameraView: UIView!
+    @IBOutlet weak var floatView: CaptureFloatView!
+    
+    //MARK:- Properties
     let captureSession = AVCaptureSession()
     var previewLayer: CALayer!
     var captureDevice: AVCaptureDevice!
     var takePhoto = false
     
+    //MARK:-
     override func viewDidLoad() {
         super.viewDidLoad()
-        prepareCamera()
+        
+        initView()
     }
     
+    func initView() {
+        prepareCamera()
+        
+        beginSession()
+        
+        floatView.delegate = self
+    }
+    
+    /// Camera output frame, layer etc. association
     func prepareCamera() {
         captureSession.sessionPreset = AVCaptureSession.Preset.photo
         let availableDevices = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .back).devices
         captureDevice = availableDevices.first
-        beginSession()
+        
     }
     
     func beginSession() {
@@ -36,6 +51,7 @@ class ViewController: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
+        
         let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         self.previewLayer = previewLayer
         self.view.layer.addSublayer(self.previewLayer)
@@ -53,9 +69,8 @@ class ViewController: UIViewController {
         dataOutput.setSampleBufferDelegate(self, queue: queue)
     }
     
-    @IBAction func capturePhotoButtonPressed(_ sender: Any) {
-        takePhoto = true
-    }
+    
+    // MARK: - Helpers
     
     func getImageFromSampleBuffer(buffer: CMSampleBuffer) -> UIImage? {
         if let pixelBuffer = CMSampleBufferGetImageBuffer(buffer) {
@@ -69,10 +84,24 @@ class ViewController: UIViewController {
         }
         return nil
     }
+    
 }
 
+
+//MARK:- Float View
+extension ViewController: CaptureFloatViewDelegate {
+    
+    func captureButtonTapped() {
+        takePhoto = true
+    }
+    
+}
+
+
+//MARK:- AV Buffer
 extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
-    func captureOutput(_ output: AVCaptureOutput!, didOutput sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
+    
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         if takePhoto {
             takePhoto = false
             if let image = self.getImageFromSampleBuffer(buffer: sampleBuffer) {
