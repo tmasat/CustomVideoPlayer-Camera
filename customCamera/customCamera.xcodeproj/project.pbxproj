@@ -15,6 +15,10 @@
 		965810E024425E6300E2B439 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 965810DF24425E6300E2B439 /* Assets.xcassets */; };
 		965810E324425E6300E2B439 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 965810E124425E6300E2B439 /* LaunchScreen.storyboard */; };
 		965810EB24428B1300E2B439 /* CapturedImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965810EA24428B1300E2B439 /* CapturedImageViewController.swift */; };
+		F0AF0DC7244F9D6D000164C4 /* UIImage+Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AF0DC6244F9D6D000164C4 /* UIImage+Assets.swift */; };
+		F0AF0DC9244F9DC1000164C4 /* UIColor+Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AF0DC8244F9DC1000164C4 /* UIColor+Assets.swift */; };
+		F0AF0DCC24503FDE000164C4 /* CaptureFloatView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0AF0DCB24503FDE000164C4 /* CaptureFloatView.xib */; };
+		F0AF0DCE24503FFA000164C4 /* CaptureFloatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AF0DCD24503FFA000164C4 /* CaptureFloatView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,11 @@
 		965810E224425E6300E2B439 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		965810E424425E6300E2B439 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		965810EA24428B1300E2B439 /* CapturedImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapturedImageViewController.swift; sourceTree = "<group>"; };
+		F0AF0DC6244F9D6D000164C4 /* UIImage+Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Assets.swift"; sourceTree = "<group>"; };
+		F0AF0DC8244F9DC1000164C4 /* UIColor+Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Assets.swift"; sourceTree = "<group>"; };
+		F0AF0DCB24503FDE000164C4 /* CaptureFloatView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CaptureFloatView.xib; sourceTree = "<group>"; };
+		F0AF0DCD24503FFA000164C4 /* CaptureFloatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureFloatView.swift; sourceTree = "<group>"; };
+		F0AF0DCF2451C4CC000164C4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +69,9 @@
 		965810D224425E6000E2B439 /* customCamera */ = {
 			isa = PBXGroup;
 			children = (
+				F0AF0DCA24503FB2000164C4 /* Common */,
+				F0AF0DC5244F9D56000164C4 /* Extensions */,
+				F0AF0DC4244F8F44000164C4 /* Utils */,
 				965810D324425E6000E2B439 /* AppDelegate.swift */,
 				965810D524425E6000E2B439 /* SceneDelegate.swift */,
 				965810D724425E6000E2B439 /* ViewController.swift */,
@@ -71,6 +83,32 @@
 				965810DC24425E6000E2B439 /* customCamera.xcdatamodeld */,
 			);
 			path = customCamera;
+			sourceTree = "<group>";
+		};
+		F0AF0DC4244F8F44000164C4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F0AF0DCF2451C4CC000164C4 /* README.md */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		F0AF0DC5244F9D56000164C4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F0AF0DC6244F9D6D000164C4 /* UIImage+Assets.swift */,
+				F0AF0DC8244F9DC1000164C4 /* UIColor+Assets.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F0AF0DCA24503FB2000164C4 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F0AF0DCB24503FDE000164C4 /* CaptureFloatView.xib */,
+				F0AF0DCD24503FFA000164C4 /* CaptureFloatView.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,6 +171,7 @@
 			files = (
 				965810E324425E6300E2B439 /* LaunchScreen.storyboard in Resources */,
 				965810E024425E6300E2B439 /* Assets.xcassets in Resources */,
+				F0AF0DCC24503FDE000164C4 /* CaptureFloatView.xib in Resources */,
 				965810DB24425E6000E2B439 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -148,6 +187,9 @@
 				965810EB24428B1300E2B439 /* CapturedImageViewController.swift in Sources */,
 				965810DE24425E6000E2B439 /* customCamera.xcdatamodeld in Sources */,
 				965810D424425E6000E2B439 /* AppDelegate.swift in Sources */,
+				F0AF0DC7244F9D6D000164C4 /* UIImage+Assets.swift in Sources */,
+				F0AF0DC9244F9DC1000164C4 /* UIColor+Assets.swift in Sources */,
+				F0AF0DCE24503FFA000164C4 /* CaptureFloatView.swift in Sources */,
 				965810D624425E6000E2B439 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,8 +335,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8UCYVYPJTR;
+				DEVELOPMENT_TEAM = PJ9SW5348L;
 				INFOPLIST_FILE = customCamera/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -311,8 +354,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8UCYVYPJTR;
+				DEVELOPMENT_TEAM = PJ9SW5348L;
 				INFOPLIST_FILE = customCamera/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
